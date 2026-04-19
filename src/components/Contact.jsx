@@ -1,24 +1,57 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    fullName: '',
+    email: '',
+    projectType: 'Revêtement de sol',
+    message: ''
+  });
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      // On cible l'adresse IP locale pour éviter les bugs de résolution DNS
+      const response = await fetch('http://127.0.0.1:5000/api/contact', {
+        method: 'POST',
+        headers: { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        alert("Succès : Votre message a été transmis à Platine Stone !");
+        setFormData({ fullName: '', email: '', projectType: 'Revêtement de sol', message: '' });
+      } else {
+        alert(`Erreur du serveur : ${result.message}`);
+      }
+    } catch (error) {
+      console.error("Erreur de connexion:", error);
+      alert("Erreur de connexion : Vérifiez que votre serveur Flask est lancé.");
+    }
+  };
+
   return (
     <section id="contact" className="py-32 bg-white px-8">
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-20">
           
-          {/* Colonne 1 : Infos de contact */}
+          {/* Infos de contact */}
           <div className="space-y-12">
             <div>
               <span className="text-gold-accent uppercase tracking-[0.5em] text-[10px] font-bold">Contact</span>
               <h2 className="text-5xl font-serif mt-4 text-stone-black italic">Parlons de votre projet.</h2>
               <p className="text-stone-gray mt-6 font-light max-w-md leading-relaxed">
-                Que vous soyez architecte ou particulier, notre équipe vous accompagne dans le choix et la pose de pierres d'exception à Taza et dans toute la région.
+                Notre équipe vous accompagne dans le choix et la pose de pierres d'exception à Taza.
               </p>
             </div>
-
             <div className="space-y-8">
               <div className="flex items-start gap-6">
-                <div className="w-12 h-12 bg-[#FAFAFA] flex items-center justify-center text-gold-accent border border-vein-gray/10 shrink-0">
+                <div className="w-12 h-12 bg-[#FAFAFA] flex items-center justify-center border border-vein-gray/10 shrink-0">
                   <span className="text-xs uppercase font-bold text-gold-accent">Adr</span>
                 </div>
                 <div>
@@ -26,9 +59,8 @@ const Contact = () => {
                   <p className="text-stone-gray text-sm font-light italic">Quartier Industriel, Taza, Maroc</p>
                 </div>
               </div>
-
               <div className="flex items-start gap-6">
-                <div className="w-12 h-12 bg-[#FAFAFA] flex items-center justify-center text-gold-accent border border-vein-gray/10 shrink-0">
+                <div className="w-12 h-12 bg-[#FAFAFA] flex items-center justify-center border border-vein-gray/10 shrink-0">
                   <span className="text-xs uppercase font-bold text-gold-accent">Tel</span>
                 </div>
                 <div>
@@ -36,55 +68,46 @@ const Contact = () => {
                   <p className="text-stone-gray text-sm font-light">+212 6XX XX XX XX</p>
                 </div>
               </div>
-
-              <div className="flex items-start gap-6">
-                <div className="w-12 h-12 bg-[#FAFAFA] flex items-center justify-center text-gold-accent border border-vein-gray/10 shrink-0">
-                  <span className="text-xs uppercase font-bold text-gold-accent">@</span>
-                </div>
-                <div>
-                  <h4 className="font-serif text-lg text-stone-black">Email Direct</h4>
-                  <p className="text-stone-gray text-sm font-light">contact@platinestone.ma</p>
-                </div>
-              </div>
             </div>
           </div>
 
-          {/* Colonne 2 : Formulaire de contact */}
+          {/* Formulaire */}
           <div className="bg-[#FAFAFA] p-10 lg:p-16 border border-vein-gray/10 shadow-sm relative">
-            {/* Badge Email Société */}
             <div className="absolute -top-4 right-10 bg-stone-black text-white px-6 py-2 text-[9px] uppercase tracking-widest font-bold shadow-lg">
-              contact@platinestone.ma
+              imaneboulahya705@gmail.com
             </div>
 
-            <form className="space-y-8 mt-4">
+            <form className="space-y-8 mt-4" onSubmit={handleSubmit}>
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-3">
-                  <label className="block text-[11px] uppercase tracking-[0.2em] font-extrabold text-stone-black">
-                    Nom Complet
-                  </label>
+                  <label className="block text-[11px] uppercase tracking-[0.2em] font-extrabold text-stone-black italic">Nom Complet</label>
                   <input 
-                    type="text" 
-                    className="w-full bg-white border border-vein-gray/30 p-4 focus:outline-none focus:border-gold-accent transition-colors font-light text-sm text-stone-black placeholder:text-stone-gray/50" 
+                    required type="text"
+                    value={formData.fullName}
+                    onChange={(e) => setFormData({...formData, fullName: e.target.value})}
+                    className="w-full bg-white border border-vein-gray/30 p-4 focus:outline-none focus:border-gold-accent text-sm text-stone-black" 
                     placeholder="Votre nom" 
                   />
                 </div>
                 <div className="space-y-3">
-                  <label className="block text-[11px] uppercase tracking-[0.2em] font-extrabold text-stone-black">
-                    Email Personnel
-                  </label>
+                  <label className="block text-[11px] uppercase tracking-[0.2em] font-extrabold text-stone-black italic">Email Personnel</label>
                   <input 
-                    type="email" 
-                    className="w-full bg-white border border-vein-gray/30 p-4 focus:outline-none focus:border-gold-accent transition-colors font-light text-sm text-stone-black placeholder:text-stone-gray/50" 
+                    required type="email"
+                    value={formData.email}
+                    onChange={(e) => setFormData({...formData, email: e.target.value})}
+                    className="w-full bg-white border border-vein-gray/30 p-4 focus:outline-none focus:border-gold-accent text-sm text-stone-black" 
                     placeholder="email@exemple.com" 
                   />
                 </div>
               </div>
 
               <div className="space-y-3">
-                <label className="block text-[11px] uppercase tracking-[0.2em] font-extrabold text-stone-black">
-                  Type de projet
-                </label>
-                <select className="w-full bg-white border border-vein-gray/30 p-4 focus:outline-none focus:border-gold-accent transition-colors font-light text-sm text-stone-black cursor-pointer">
+                <label className="block text-[11px] uppercase tracking-[0.2em] font-extrabold text-stone-black italic">Type de projet</label>
+                <select 
+                  value={formData.projectType}
+                  onChange={(e) => setFormData({...formData, projectType: e.target.value})}
+                  className="w-full bg-white border border-vein-gray/30 p-4 focus:outline-none focus:border-gold-accent text-sm text-stone-black cursor-pointer"
+                >
                   <option>Revêtement de sol</option>
                   <option>Escaliers</option>
                   <option>Cuisine / Plan de travail</option>
@@ -93,12 +116,12 @@ const Contact = () => {
               </div>
 
               <div className="space-y-3">
-                <label className="block text-[11px] uppercase tracking-[0.2em] font-extrabold text-stone-black">
-                  Votre Message
-                </label>
+                <label className="block text-[11px] uppercase tracking-[0.2em] font-extrabold text-stone-black italic">Votre Message</label>
                 <textarea 
-                  rows="4" 
-                  className="w-full bg-white border border-vein-gray/30 p-4 focus:outline-none focus:border-gold-accent transition-colors font-light text-sm text-stone-black placeholder:text-stone-gray/50" 
+                  required rows="4" 
+                  value={formData.message}
+                  onChange={(e) => setFormData({...formData, message: e.target.value})}
+                  className="w-full bg-white border border-vein-gray/30 p-4 focus:outline-none focus:border-gold-accent text-sm text-stone-black" 
                   placeholder="Décrivez vos besoins..."
                 ></textarea>
               </div>
@@ -108,7 +131,6 @@ const Contact = () => {
               </button>
             </form>
           </div>
-
         </div>
       </div>
     </section>
