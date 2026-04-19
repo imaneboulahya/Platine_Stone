@@ -18,7 +18,7 @@ const Catalog = () => {
     {
       title: "Catalogue des Marbres",
       description: "Explorez notre collection complète de marbres, granits et pierres naturelles disponibles.",
-      image: "https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: "https://media.istockphoto.com/id/1321576796/fr/photo/des-%C3%A9chantillons-carr%C3%A9s-en-gr%C3%A8s-c%C3%A9rame-pos%C3%A9s-sur-le-comptoir-de-la-cuisine-comme-exemples-de.webp?a=1&b=1&s=612x612&w=0&k=20&c=GOyZm4GWoDO44e_VCmox_9Cnp22pziIUsjZ8CkRROMA=",
       link: "/types-marbre",
       label: "Découvrir la collection",
       isAvailable: true
@@ -26,7 +26,7 @@ const Catalog = () => {
     {
       title: "Conseils & Choix",
       description: "Comment bien choisir son marbre ? Nos experts vous guident selon vos besoins.",
-      image: "https://images.pexels.com/photos/5490778/pexels-photo-5490778.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: "https://plus.unsplash.com/premium_photo-1744995489414-54227f34f060?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bWFyYnJlJTIwYnJpY29sYWdlfGVufDB8fDB8fHww",
       link: "/conseils",
       label: "Lire les conseils",
       isAvailable: true

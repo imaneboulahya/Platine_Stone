@@ -29,7 +29,7 @@ const About = () => {
 
               {/* IMAGE PRINCIPALE (ARTISAN / ATELIER) */}
               <img 
-                src="https://images.pexels.com/photos/5490778/pexels-photo-5490778.jpeg?auto=compress&cs=tinysrgb&w=800" 
+                src="https://plus.unsplash.com/premium_photo-1744995489414-54227f34f060?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bWFyYnJlJTIwYnJpY29sYWdlfGVufDB8fDB8fHww" 
                 alt="Expertise en marbrerie de prestige" 
                 className="w-full h-[650px] object-cover shadow-2xl border-4 border-white" 
               />

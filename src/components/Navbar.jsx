@@ -4,37 +4,36 @@ import { motion, AnimatePresence } from 'framer-motion';
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+  // --- MISE À JOUR DES LIENS AVEC ACCUEIL ---
   const navLinks = [
-    { name: 'Heritage', href: '#about' },
-    { name: 'Collection', href: '#catalog' },
-    { name: 'Artisanship', href: '#services' },
-    { name: 'Inquiry', href: '#contact' },
+    { name: 'Accueil', href: '/' },          // Retour en haut de page
+    { name: 'A Propos', href: '/#about' },    // Section À Propos
+    { name: 'Exploration', href: '/#catalog' }, // Section Catalogue
+    { name: 'Contact', href: '/#contact' },   // Section Contact
   ];
 
   return (
     <nav className="fixed w-full z-[100] px-6 py-5 flex justify-between items-center bg-white/90 backdrop-blur-md border-b border-vein-gray/20">
       
-      {/* Brand Logo avec Style Créatif */}
+      {/* Brand Logo */}
       <div className="font-serif text-xl md:text-2xl tracking-tighter flex items-center gap-2">
         <div className="w-5 h-5 border border-gold-accent rotate-45 flex items-center justify-center shrink-0">
           <div className="w-2.5 h-2.5 bg-stone-black"></div>
         </div>
         <div className="flex items-baseline">
           <span className="text-stone-black uppercase font-bold tracking-tight">Platine</span>
-          {/* Style "Stone" : Gris, Italique et Serif élégant */}
           <span 
-      className="ml-2 text-3xl md:text-4xl select-none"
-      style={{ 
-        fontFamily: "'Playfair Display', serif",
-        fontStyle: "italic",
-        color: "#C9A24D", 
-        fontWeight: "400",
-        // Un léger tracking négatif pour imiter la compression de ton image
-        letterSpacing: "-0.03em" 
-      }}
-    >
-      stone
-    </span>
+            className="ml-2 text-3xl md:text-4xl select-none"
+            style={{ 
+              fontFamily: "'Playfair Display', serif",
+              fontStyle: "italic",
+              color: "#C9A24D", 
+              fontWeight: "400",
+              letterSpacing: "-0.03em" 
+            }}
+          >
+            stone
+          </span>
         </div>
       </div>
 
@@ -52,7 +51,7 @@ const Navbar = () => {
         onClick={() => setIsOpen(!isOpen)}
         className="md:hidden text-[10px] uppercase tracking-[0.4em] font-bold text-stone-black px-2 py-1"
       >
-        {isOpen ? 'Close' : 'Menu'}
+        {isOpen ? 'Fermer' : 'Menu'}
       </button>
 
       {/* Mobile Menu Overlay */}
@@ -76,9 +75,8 @@ const Navbar = () => {
               </a>
             ))}
             
-            {/* Pied de menu mobile épuré sans numéro */}
             <div className="mt-4 pt-6 border-t border-vein-gray/10 text-[9px] uppercase tracking-widest text-vein-gray">
-              <p>Atelier de Marbrerie • Consultation sur rendez-vous</p>
+              <p>Atelier de Marbrerie • Oujda • Sur rendez-vous</p>
             </div>
           </motion.div>
         )}

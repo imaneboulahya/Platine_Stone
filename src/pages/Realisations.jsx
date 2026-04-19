@@ -15,12 +15,12 @@ const projects = [
   {
     title: "Résidence Privée - Rabat",
     category: "Cuisine en Quartzite",
-    image: "https://images.pexels.com/photos/6044732/pexels-photo-6044732.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+    image: "https://images.unsplash.com/photo-1643034738686-d69e7bc047e1?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
     title: "Appartement Moderne - Tanger",
     category: "Salle de Bain Calacatta",
-    image: "https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+    image: "https://images.unsplash.com/photo-1738748444551-2f0819de6faa?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   }
 ];
 

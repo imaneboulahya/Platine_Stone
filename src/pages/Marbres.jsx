@@ -6,28 +6,28 @@ const marbres = [
     name: "Carrara White",
     origin: "Italie",
     finish: "Poli / Adouci",
-    image: "https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image: "https://plus.unsplash.com/premium_photo-1764687797170-8139372a9005?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Q2FycmFyYSUyMFdoaXRlfGVufDB8fDB8fHww",
     description: "Le grand classique intemporel avec ses veines grises délicates."
   },
   {
     name: "Nero Marquina",
     origin: "Espagne",
     finish: "Poli",
-    image: "https://images.pexels.com/photos/172289/pexels-photo-172289.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image: "https://images.unsplash.com/photo-1550053808-52a75a05955d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8YmxhY2slMjBtYXJibGV8ZW58MHx8MHx8fDA%3D",
     description: "Un noir profond intense contrasté par des veines blanches éclatantes."
   },
   {
     name: "Calacatta Gold",
     origin: "Italie",
     finish: "Satiné",
-    image: "https://images.pexels.com/photos/1352134/pexels-photo-1352134.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image: "https://media.istockphoto.com/id/2203950347/fr/photo/fond-de-texture-de-marbre-blanc-de-luxe.webp?a=1&b=1&s=612x612&w=0&k=20&c=pDU4_VUmrc9ZHfKCnVbFNNXL3gmijYzqQKBaHry38Nw=",
     description: "Le summum du luxe avec des veines dorées et ambrées."
   },
   {
     name: "Vert Guatemala",
     origin: "Inde",
     finish: "Poli",
-    image: "https://images.pexels.com/photos/1012111/pexels-photo-1012111.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image: "https://images.unsplash.com/photo-1532644440111-bc94f97955c1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Z3JlZW4lMjBtYXJibGV8ZW58MHx8MHx8fDA%3D",
     description: "Une profondeur émeraude unique pour des pièces de caractère."
   }
 ];
@@ -51,7 +51,7 @@ const Marbres = () => {
             animate={{ opacity: 1, y: 0 }}
             className="text-6xl md:text-8xl font-serif mt-6 text-stone-black"
           >
-            Types de <span className="italic text-gold-accent">Marbre</span>
+            Catallogue De <span className="italic text-gold-accent">Marbre</span>
           </motion.h1>
         </div>
 

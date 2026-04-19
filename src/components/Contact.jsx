@@ -11,7 +11,6 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // On cible l'adresse IP locale pour éviter les bugs de résolution DNS
       const response = await fetch('http://127.0.0.1:5000/api/contact', {
         method: 'POST',
         headers: { 
@@ -40,44 +39,55 @@ const Contact = () => {
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-20">
           
-          {/* Infos de contact */}
+          {/* Infos de contact - TOUTES REGROUPÉES ICI */}
           <div className="space-y-12">
             <div>
               <span className="text-gold-accent uppercase tracking-[0.5em] text-[10px] font-bold">Contact</span>
               <h2 className="text-5xl font-serif mt-4 text-stone-black italic">Parlons de votre projet.</h2>
               <p className="text-stone-gray mt-6 font-light max-w-md leading-relaxed">
-                Notre équipe vous accompagne dans le choix et la pose de pierres d'exception à Taza.
+                Notre équipe vous accompagne dans le choix et la pose de pierres d'exception à Oujda.
               </p>
             </div>
+
             <div className="space-y-8">
+              {/* Adresse */}
               <div className="flex items-start gap-6">
                 <div className="w-12 h-12 bg-[#FAFAFA] flex items-center justify-center border border-vein-gray/10 shrink-0">
                   <span className="text-xs uppercase font-bold text-gold-accent">Adr</span>
                 </div>
                 <div>
                   <h4 className="font-serif text-lg text-stone-black">Siège Social</h4>
-                  <p className="text-stone-gray text-sm font-light italic">Quartier Industriel, Taza, Maroc</p>
+                  <p className="text-stone-gray text-sm font-light italic">Quartier Industriel, Oujda, Maroc</p>
                 </div>
               </div>
+
+              {/* Email Société - DÉPLACÉ ICI */}
+              <div className="flex items-start gap-6">
+                <div className="w-12 h-12 bg-[#FAFAFA] flex items-center justify-center border border-vein-gray/10 shrink-0">
+                  <span className="text-xs uppercase font-bold text-gold-accent">Eml</span>
+                </div>
+                <div>
+                  <h4 className="font-serif text-lg text-stone-black">Email Professionnel</h4>
+                  <p className="text-stone-gray text-sm font-light italic">platinestone@gmail.com</p>
+                </div>
+              </div>
+
+              {/* Téléphone */}
               <div className="flex items-start gap-6">
                 <div className="w-12 h-12 bg-[#FAFAFA] flex items-center justify-center border border-vein-gray/10 shrink-0">
                   <span className="text-xs uppercase font-bold text-gold-accent">Tel</span>
                 </div>
                 <div>
                   <h4 className="font-serif text-lg text-stone-black">Téléphone</h4>
-                  <p className="text-stone-gray text-sm font-light">+212 6XX XX XX XX</p>
+                  <p className="text-stone-gray text-sm font-light">+212 760 82 97 20</p>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Formulaire */}
-          <div className="bg-[#FAFAFA] p-10 lg:p-16 border border-vein-gray/10 shadow-sm relative">
-            <div className="absolute -top-4 right-10 bg-stone-black text-white px-6 py-2 text-[9px] uppercase tracking-widest font-bold shadow-lg">
-              imaneboulahya705@gmail.com
-            </div>
-
-            <form className="space-y-8 mt-4" onSubmit={handleSubmit}>
+          {/* Formulaire - PLUS ÉPURÉ */}
+          <div className="bg-[#FAFAFA] p-10 lg:p-16 border border-vein-gray/10 shadow-sm">
+            <form className="space-y-8" onSubmit={handleSubmit}>
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-3">
                   <label className="block text-[11px] uppercase tracking-[0.2em] font-extrabold text-stone-black italic">Nom Complet</label>
@@ -90,7 +100,7 @@ const Contact = () => {
                   />
                 </div>
                 <div className="space-y-3">
-                  <label className="block text-[11px] uppercase tracking-[0.2em] font-extrabold text-stone-black italic">Email Personnel</label>
+                  <label className="block text-[11px] uppercase tracking-[0.2em] font-extrabold text-stone-black italic">Email </label>
                   <input 
                     required type="email"
                     value={formData.email}

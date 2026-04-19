@@ -3,26 +3,44 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
 import Catalog from './components/Catalog';
-import Contact from './components/Contact'; // Importation de ton fichier séparé
+import Contact from './components/Contact'; 
 import Realisations from './pages/Realisations';
 import Marbres from './pages/Marbres';
 import Conseils from './pages/Conseils';
 
+// --- FOOTER HARMONISÉ AVEC LA NAVBAR ---
 const Footer = () => (
-  <footer className="py-16 bg-stone-black text-white px-8">
-    <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
-      <div className="text-center md:text-left">
-        <p className="font-serif text-3xl tracking-tighter">PLATINE STONE</p>
-        <p className="text-[9px] uppercase tracking-[0.4em] text-white/40 mt-2">L'Art de la Pierre Naturelle</p>
+  <footer className="py-20 bg-stone-black text-white px-8 border-t border-white/5">
+    <div className="max-w-7xl mx-auto">
+      <div className="flex flex-col md:flex-row justify-between items-center gap-12">
+        
+        {/* Identité visuelle du footer */}
+        <div className="text-center md:text-left">
+          <div className="font-serif text-2xl tracking-tighter flex items-center justify-center md:justify-start gap-2">
+            <span className="uppercase font-bold">Platine</span>
+            <span className="italic text-gold-accent" style={{ fontFamily: "'Playfair Display', serif" }}>stone</span>
+          </div>
+          <p className="text-[9px] uppercase tracking-[0.4em] text-white/30 mt-4">
+            L'Art de la Pierre Naturelle • Oujda, Maroc
+          </p>
+        </div>
+
+        {/* Navigation du footer (Copie conforme de la Navbar) */}
+        <div className="flex flex-wrap justify-center gap-8 text-[10px] uppercase tracking-[0.2em] font-bold text-white/60">
+          <a href="/" className="hover:text-gold-accent transition-colors">Accueil</a>
+          <a href="/#about" className="hover:text-gold-accent transition-colors">A Propos</a>
+          <a href="/#catalog" className="hover:text-gold-accent transition-colors">Exploration</a>
+          <a href="/#contact" className="hover:text-gold-accent transition-colors">Contact</a>
+        </div>
+
+        {/* Copyright dynamique */}
+        <div className="text-center md:text-right">
+          <p className="text-[9px] text-white/20 uppercase tracking-widest font-light">
+            © {new Date().getFullYear()} Platine Stone. Tous droits réservés.
+          </p>
+        </div>
+
       </div>
-      <div className="flex gap-8 text-[10px] uppercase tracking-widest font-bold text-white/60">
-        <a href="/" className="hover:text-gold-accent transition-colors">Accueil</a>
-        <a href="#about" className="hover:text-gold-accent transition-colors">Héritage</a>
-        <a href="#contact" className="hover:text-gold-accent transition-colors">Contact</a>
-      </div>
-      <p className="text-[9px] text-white/30 uppercase tracking-widest">
-        © {new Date().getFullYear()} Platine Stone
-      </p>
     </div>
   </footer>
 );
@@ -41,7 +59,7 @@ function App() {
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
-      <main>
+      <main id="top">
         {currentPath === '/realisations' ? (
           <Realisations />
         ) : currentPath === '/types-marbre' ? (
@@ -53,7 +71,7 @@ function App() {
             <Hero />
             <About />
             <Catalog />
-            <Contact /> {/* Utilisation du composant importé */}
+            <Contact />
             <Footer />
           </>
         )}
