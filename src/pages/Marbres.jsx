@@ -2,89 +2,70 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const marbres = [
-  {
-    name: "Carrara White",
-    origin: "Italie",
-    finish: "Poli / Adouci",
-    image: "https://plus.unsplash.com/premium_photo-1764687797170-8139372a9005?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Q2FycmFyYSUyMFdoaXRlfGVufDB8fDB8fHww",
-    description: "Le grand classique intemporel avec ses veines grises délicates."
-  },
-  {
-    name: "Nero Marquina",
-    origin: "Espagne",
-    finish: "Poli",
-    image: "https://images.unsplash.com/photo-1550053808-52a75a05955d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8YmxhY2slMjBtYXJibGV8ZW58MHx8MHx8fDA%3D",
-    description: "Un noir profond intense contrasté par des veines blanches éclatantes."
-  },
-  {
-    name: "Calacatta Gold",
-    origin: "Italie",
-    finish: "Satiné",
-    image: "https://media.istockphoto.com/id/2203950347/fr/photo/fond-de-texture-de-marbre-blanc-de-luxe.webp?a=1&b=1&s=612x612&w=0&k=20&c=pDU4_VUmrc9ZHfKCnVbFNNXL3gmijYzqQKBaHry38Nw=",
-    description: "Le summum du luxe avec des veines dorées et ambrées."
-  },
-  {
-    name: "Vert Guatemala",
-    origin: "Inde",
-    finish: "Poli",
-    image: "https://images.unsplash.com/photo-1532644440111-bc94f97955c1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Z3JlZW4lMjBtYXJibGV8ZW58MHx8MHx8fDA%3D",
-    description: "Une profondeur émeraude unique pour des pièces de caractère."
-  }
+  { id: 1, name: "Carrara White", img: "https://plus.unsplash.com/premium_photo-1764687797170-8139372a9005?w=600" },
+  { id: 2, name: "Nero Marquina", img: "https://images.unsplash.com/photo-1550053808-52a75a05955d?w=600" },
+  { id: 3, name: "Calacatta Gold", img: "https://media.istockphoto.com/id/2203950347/fr/photo/fond-de-texture-de-marbre-blanc-de-luxe.webp?a=1&b=1&s=612x612&w=800" },
+  { id: 4, name: "Vert Guatemala", img: "https://images.unsplash.com/photo-1532644440111-bc94f97955c1?w=600" },
+  // ... ajoute tes 6 autres photos ici
 ];
 
 const Marbres = () => {
   return (
-    <div className="bg-[#FAFAFA] min-h-screen pt-32 pb-20 px-8">
-      <div className="max-w-7xl mx-auto">
+    <div className="bg-[#fcfcfc] min-h-screen pt-24 pb-20 px-8">
+      <div className="max-w-[1200px] mx-auto">
         
-        {/* En-tête */}
-        <div className="mb-20 text-center">
-          <motion.span 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="text-gold-accent uppercase tracking-[0.6em] text-[10px] font-bold"
-          >
-            Collection Exclusive
-          </motion.span>
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-6xl md:text-8xl font-serif mt-6 text-stone-black"
-          >
-            Catallogue De <span className="italic text-gold-accent">Marbre</span>
-          </motion.h1>
-        </div>
+        {/* Titre minimaliste */}
+                <div className="mb-16">
+                  <motion.h1 
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    className="text-4xl md:text-6xl font-serif text-[#1a1a1a] tracking-tight"
+                  >
+                    Catalogue des <span className="italic">Marbres</span>
+                  </motion.h1>
+                  <div className="w-20 h-[1px] bg-[#c5a059] mt-6"></div>
+                </div>
 
-        {/* Grille des échantillons */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {/* Grille de photos plus petites (4 colonnes sur desktop) */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-12">
           {marbres.map((m, index) => (
             <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
+              key={m.id}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-              className="bg-white p-4 shadow-sm hover:shadow-xl transition-shadow"
+              transition={{ duration: 0.6, delay: index * 0.05 }}
+              viewport={{ once: true }}
+              className="group cursor-pointer text-center"
             >
-              <div className="h-64 overflow-hidden mb-6">
-                <img src={m.image} alt={m.name} className="w-full h-full object-cover" />
+              {/* Photo plus petite avec format portrait élégant */}
+              <div className="relative aspect-[4/5] overflow-hidden bg-stone-100 mb-4">
+                <motion.img 
+                  src={m.img} 
+                  alt={m.name}
+                  whileHover={{ scale: 1.08 }}
+                  transition={{ duration: 1 }}
+                  className="w-full h-full object-cover grayscale-[0.1] group-hover:grayscale-0 transition-all duration-500"
+                />
               </div>
-              <h3 className="text-xl font-serif text-stone-black mb-1">{m.name}</h3>
-              <p className="text-gold-accent text-[10px] uppercase tracking-widest mb-4">{m.origin} — {m.finish}</p>
-              <p className="text-stone-gray text-sm font-light leading-relaxed">
-                {m.description}
-              </p>
+              
+              {/* Nom du marbre sous la photo */}
+              <h3 className="text-[11px] uppercase tracking-[0.2em] text-[#1a1a1a] font-medium group-hover:text-[#c5a059] transition-colors duration-300">
+                {m.name}
+              </h3>
+              <div className="w-4 h-[1px] bg-gray-200 mx-auto mt-2 group-hover:w-8 group-hover:bg-[#c5a059] transition-all duration-500" />
             </motion.div>
           ))}
         </div>
 
-        <div className="mt-20 text-center">
-           <button 
-             onClick={() => window.location.href = '/'}
-             className="text-stone-black font-bold uppercase tracking-widest text-[10px] border-b-2 border-gold-accent pb-2"
-           >
-             Retour à l'accueil
-           </button>
-        </div>
+        {/* Bouton retour épuré */}
+        <footer className="mt-24 text-center">
+          <button 
+            onClick={() => window.history.back()}
+            className="text-[9px] uppercase tracking-[0.4em] text-gray-400 hover:text-[#c5a059] transition-colors duration-300 border-b border-transparent hover:border-[#c5a059] pb-1"
+          >
+            Retour
+          </button>
+        </footer>
       </div>
     </div>
   );

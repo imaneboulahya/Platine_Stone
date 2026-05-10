@@ -2,92 +2,66 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const projects = [
-  {
-    title: "Villa Contemporaine - Casablanca",
-    category: "Revêtement de Sol",
-    image: "https://images.pexels.com/photos/7005282/pexels-photo-7005282.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-  },
-  {
-    title: "Hôtel de Luxe - Marrakech",
-    category: "Hall d'entrée en Marbre",
-    image: "https://images.pexels.com/photos/2724749/pexels-photo-2724749.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-  },
-  {
-    title: "Résidence Privée - Rabat",
-    category: "Cuisine en Quartzite",
-    image: "https://images.unsplash.com/photo-1643034738686-d69e7bc047e1?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-  },
-  {
-    title: "Appartement Moderne - Tanger",
-    category: "Salle de Bain Calacatta",
-    image: "https://images.unsplash.com/photo-1738748444551-2f0819de6faa?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-  }
+  { id: 1, image: "../../public/escalier_1.jpg" },
+  { id: 2, image: "../../public/escalier_2.jpg" },
+  { id: 3, image: "../../public/kichen_1.jpg" },
+  { id: 4, image: "../../public/motif_1.jpg" },
+  { id: 5, image: "../../public/escalier_3.jpg" },
+  { id: 6, image: "../../public/escalier_4.jpg" },
+  { id: 7, image: "../../public/kichen_2.jpg" },
+  { id: 8, image: "../../public/escalier_5.jpg" },
+  { id: 9, image: "../../public/kichen_3.jpg" },
+  { id: 10, image: "../../public/motif_2.jpg" },
 ];
 
 const Realisations = () => {
   return (
-    <div className="bg-white min-h-screen pt-32 pb-20 px-8">
-      <div className="max-w-7xl mx-auto">
+    <div className="bg-[#fcfcfc] min-h-screen pt-24 pb-20 px-4 md:px-6">
+      <div className="max-w-[1400px] mx-auto">
         
-        {/* En-tête de la page */}
-        <div className="mb-20 text-center">
-          <motion.span 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="text-gold-accent uppercase tracking-[0.6em] text-[10px] font-bold"
-          >
-            Portfolio
-          </motion.span>
+        {/* Titre minimaliste */}
+        <div className="mb-16">
           <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-6xl md:text-8xl font-serif mt-6 text-stone-black"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            className="text-4xl md:text-6xl font-serif text-[#1a1a1a] tracking-tight"
           >
-            Nos <span className="italic text-gold-accent">Réalisations</span>
+            Galerie de <span className="italic">Projets</span>
           </motion.h1>
-          <p className="text-stone-gray max-w-2xl mx-auto mt-8 font-light text-lg">
-            Une immersion dans nos projets les plus prestigieux, où chaque pierre est posée avec une précision millimétrée.
-          </p>
+          <div className="w-20 h-[1px] bg-[#c5a059] mt-6"></div>
         </div>
 
-        {/* Grille de projets */}
-        <div className="grid md:grid-cols-2 gap-12">
+        {/* Grille de 10 photos */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
           {projects.map((project, index) => (
             <motion.div
-              key={index}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: index * 0.1 }}
+              key={project.id}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.05 }}
               viewport={{ once: true }}
-              className="group cursor-pointer"
+              className="relative aspect-square overflow-hidden bg-stone-100 group cursor-crosshair"
             >
-              <div className="relative h-[600px] overflow-hidden shadow-2xl">
-                <img 
-                  src={project.image} 
-                  alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-110"
-                />
-                {/* Overlay au survol */}
-                <div className="absolute inset-0 bg-stone-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex items-center justify-center">
-                  <div className="text-center p-6 border border-white/20 backdrop-blur-sm bg-white/10 w-4/5 h-4/5 flex flex-col justify-center">
-                    <p className="text-gold-accent text-xs uppercase tracking-widest mb-4">{project.category}</p>
-                    <h3 className="text-white text-3xl font-serif">{project.title}</h3>
-                    <div className="w-12 h-px bg-white mx-auto mt-6"></div>
-                  </div>
-                </div>
-              </div>
+              <img 
+                src={project.image} 
+                alt={`Réalisation ${index + 1}`}
+                className="w-full h-full object-cover grayscale-[0.3] group-hover:grayscale-0 transition-all duration-[1.2s] ease-out group-hover:scale-110"
+              />
+              
+              {/* Bordure discrète au survol au lieu d'un overlay plein */}
+              <div className="absolute inset-0 border-[0px] group-hover:border-[15px] border-white/10 transition-all duration-500 pointer-events-none"></div>
             </motion.div>
           ))}
         </div>
 
-        {/* Bouton retour simple (en attendant le router) */}
-        <div className="mt-20 text-center">
-           <button 
-             onClick={() => window.history.back()}
-             className="text-stone-black font-bold uppercase tracking-widest text-[10px] border-b-2 border-gold-accent pb-2 hover:text-gold-accent transition-colors"
-           >
-             Retour à l'accueil
-           </button>
+        {/* Navigation retour */}
+        <div className="mt-20 flex justify-center">
+          <button 
+            onClick={() => window.history.back()}
+            className="text-[10px] uppercase tracking-[0.4em] text-gray-400 hover:text-[#c5a059] transition-colors duration-300"
+          >
+            ← Retour
+          </button>
         </div>
       </div>
     </div>
