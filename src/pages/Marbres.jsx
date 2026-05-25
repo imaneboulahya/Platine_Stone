@@ -4,9 +4,9 @@ import { motion } from 'framer-motion';
 const marbres = [
   { id: 1, name: "Carrara White", img: "https://plus.unsplash.com/premium_photo-1764687797170-8139372a9005?w=600" },
   { id: 2, name: "Nero Marquina", img: "https://images.unsplash.com/photo-1550053808-52a75a05955d?w=600" },
-  { id: 3, name: "Calacatta Gold", img: "https://media.istockphoto.com/id/2203950347/fr/photo/fond-de-texture-de-marbre-blanc-de-luxe.webp?a=1&b=1&s=612x612&w=800" },
+  { id: 3, name: "Calacatta Gold", img: "https://plus.unsplash.com/premium_photo-1671410372744-989627ea0033?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bWFyYnJlfGVufDB8fDB8fHww" },
   { id: 4, name: "Vert Guatemala", img: "https://images.unsplash.com/photo-1532644440111-bc94f97955c1?w=600" },
-  // ... ajoute tes 6 autres photos ici
+
 ];
 
 const Marbres = () => {
